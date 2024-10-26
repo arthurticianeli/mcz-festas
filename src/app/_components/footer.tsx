@@ -1,31 +1,45 @@
-import Container from "@/app/_components/container";
-import { EXAMPLE_PATH } from "@/lib/constants";
+import Link from "next/link";
+import Container from "./container";
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200 dark:bg-slate-800">
-      <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/app/building-your-application/routing/layouts-and-templates"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
+    <Container>
+      <footer className="mx-auto w-full py-6 lg:py-8 bg-white">
+        <div className="flex justify-between mb-1">
+          <Link href="/" className="flex items-center h-full my-auto">
+            <img
+              src="/assets/logofamilia.png"
+              className="h-10 me-3"
+              alt="FlowBite Logo"
+            />
+          </Link>
+
+          <div className="flex h-full my-auto">
+            <Link href="https://www.facebook.com/mczfestas">
+              <span className="sr-only">Facebook</span>
+              <img src="/assets/facebook.svg" alt="Facebook" className="h-7" />
+            </Link>
+            <Link href="https://www.instagram.com/mczfestas">
+              <span className="sr-only">Instagram</span>
+              <img
+                src="/assets/instagram.svg"
+                alt="Instagram"
+                className="h-7"
+              />
+            </Link>
           </div>
         </div>
-      </Container>
-    </footer>
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            © 2024
+            <Link href="/" className="hover:underline">
+              MczFestas™
+            </Link>
+            . All Rights Reserved.
+          </span>
+        </div>
+      </footer>
+    </Container>
   );
 }
 
