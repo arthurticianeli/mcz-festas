@@ -8,6 +8,7 @@
   "dependencies": {
     "@headlessui/react": "^2.1.9",
     "@heroicons/react": "^2.1.5",
+    "@hookform/resolvers": "^3.9.0",
     "classnames": "^2.5.1",
     "date-fns": "^3.6.0",
     "flowbite-react": "^0.10.2",
@@ -15,8 +16,10 @@
     "next": "latest",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.1",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.8",

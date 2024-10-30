@@ -9,7 +9,9 @@ const imgs = [
 const getRandomPosition = (min: number, max: number) =>
   Math.random() * (max - min) + min;
 
-const generateUniquePositions = (count: number) => {
+const generateUniquePositions = () => {
+  let count = getRandomPosition(15, 30);
+
   const positions: { top: number; left: number; rotation: number }[] = [];
   const halfCount = Math.ceil(count / 2);
 
@@ -38,12 +40,8 @@ const generateUniquePositions = (count: number) => {
   return positions;
 };
 
-interface BackgroundProps {
-  quantityImages: number;
-}
-
-const Background = ({ quantityImages }: BackgroundProps) => {
-  const positions = generateUniquePositions(quantityImages);
+const Background = () => {
+  const positions = generateUniquePositions();
 
   return (
     <div className="background-container">
@@ -52,7 +50,7 @@ const Background = ({ quantityImages }: BackgroundProps) => {
           key={index}
           src={imgs[Math.floor(Math.random() * imgs.length)]}
           alt={`Decorative background ${index}`}
-          className="background-image hidden 2xl:block"
+          className="background-image "
           style={{
             top: `${pos.top}%`,
             left: `${pos.left}%`,

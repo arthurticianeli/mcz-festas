@@ -1,9 +1,6 @@
 "use client";
 
-import Background from "@/app/_components/background";
 import Container from "@/app/_components/container";
-import Footer from "@/app/_components/footer";
-import Navigation from "@/app/_components/navigation";
 import { FornecedorMock } from "@/app/mocks/fornecedorMock";
 import { Fornecedor } from "@/interfaces/fornecedor";
 import { Button, Carousel } from "flowbite-react";
@@ -24,11 +21,9 @@ export default function FornecedorPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Background quantityImages={22} />
-      <main className="flex-grow">
-        <Navigation />
-        <Container>
+    <Container>
+      <div className="flex flex-col min-h-screen">
+        <main className="flex-grow">
           <div className="mt-32 mb-6 bg-white">
             <div className="h-56 sm:h-64 sm:w-[50vw] xl:h-80 xl:w-[40vw] 2xl:h-94 2xl:w-[30vw] mx-auto">
               <Carousel>
@@ -90,9 +85,8 @@ export default function FornecedorPage() {
             </div>
           </div> */}
           </div>
-        </Container>
-      </main>
-      <Footer />
-    </div>
+        </main>
+      </div>
+    </Container>
   );
 }

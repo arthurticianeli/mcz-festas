@@ -1,17 +1,14 @@
-import Background from "./_components/background";
 import Body from "./_components/body";
-import Footer from "./_components/footer";
+import Container from "./_components/container";
 import Header from "./_components/header";
 
 export default function Index() {
   return (
-    <main>
-      <div className="relative">
-        <Background quantityImages={32} />
-        <Header />
+    <>
+      <Header />
+      <Container>
         <Body />
-        <Footer />
-      </div>
-    </main>
+      </Container>
+    </>
   );
 }

@@ -1,11 +1,12 @@
-export type Fornecedor = {
-  id: string;
+export interface Fornecedor {
+  id?: string;
   name: string;
-  pictures: string[];
   description: string;
   type: string;
+  email: string;
+  whatsapp?: string;
   facebook?: string;
   instagram?: string;
-  whatsapp?: string;
   site?: string;
-};
+  pictures?: File[];
+}

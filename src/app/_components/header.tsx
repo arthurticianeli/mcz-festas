@@ -1,12 +1,7 @@
-"use client";
-
-import Navigation from "./navigation";
-
 const Header = () => {
   return (
-    <div className="bg-gradient-to-b from-[#FBFBFB] to-[#C98EBA] relative">
-      <Navigation />
-      <div className="relative isolate px-6 pt-14 lg:px-8 z-10">
+    <div className="bg-gradient-to-b from-[#FBFBFB] to-[#C98EBA] relative pt-32">
+      <div className="relative isolate px-6 lg:px-8 z-10">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
