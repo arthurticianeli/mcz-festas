@@ -4,7 +4,7 @@ import DropdownMultiSelect from "./DropdownMultiSelect";
 const Filtro = () => {
   const bairrosOptions = ["Bairro 1", "Bairro 2", "Bairro 3", "Bairro 4"];
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 p-6 lg:py-8">
+    <div className="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 p-6 lg:py-8 z-10">
       <div className="w-full mx-auto">
         <div className="mb-2 block">
           <Label htmlFor="search" value="Nome do fornecedor" />

@@ -38,21 +38,21 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 overflow-hidden mx-5 z-0 min-h-[50vh] opacity-15 md:min-h-[60vh] md:max-w-screen-md md:mx-auto lg:min-h-[70vh] lg:max-w-screen-2xl lg:px-5 lg:mx-auto">
+      <div className="absolute inset-x-0 bottom-0 overflow-hidden mx-5 z-0 min-h-[50vh] opacity-15 md:min-h-[60vh] md:max-w-screen-md md:mx-auto lg:min-h-[70vh] lg:max-w-[70vw] lg:px-5 lg:mx-auto">
         <img
           src="/assets/buffet.jpg"
           alt="Buffet"
-          className="absolute z-50 rounded-t-lg left-0 bottom-0 object-cover w-5/12 md:w-4/12 md:left-5 lg:w-3/12 lg:rounded-t-3xl"
+          className="absolute -z-10 rounded-t-lg left-0 bottom-0 object-cover w-5/12 md:w-4/12 md:left-5 lg:w-3/12 lg:rounded-t-3xl"
         />
         <img
           src="/assets/birthday.jpg"
           alt="Birthday"
-          className="absolute left-1/2 transform -translate-x-1/2 z-0 rounded-t-lg bottom-0 object-cover h-full sm:w-10/12 lg:w-8/12 lg:h-5/6 lg:rounded-t-3xl"
+          className="absolute -z-20 left-1/2 transform -translate-x-1/2  rounded-t-lg bottom-0 object-cover h-full sm:w-10/12 lg:w-8/12 lg:h-5/6 lg:rounded-t-3xl"
         />
         <img
           src="/assets/cake.jpg"
           alt="Cake"
-          className="absolute right-0 z-50 rounded-t-lg bottom-0 object-cover w-5/12 md:w-4/12 md:right-5 lg:rounded-t-3xl"
+          className="absolute -z-10 right-0  rounded-t-lg bottom-0 object-cover w-5/12 md:w-4/12 md:right-5 lg:rounded-t-3xl"
         />
       </div>
     </div>

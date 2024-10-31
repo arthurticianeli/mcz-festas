@@ -8,5 +8,5 @@ export interface Fornecedor {
   facebook?: string;
   instagram?: string;
   site?: string;
-  pictures?: File[];
+  pictures?: string[];
 }

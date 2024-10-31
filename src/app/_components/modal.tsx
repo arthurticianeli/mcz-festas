@@ -5,14 +5,13 @@ interface ModalProps {
   show: boolean;
   onClose: () => void;
   imageSrc: string;
-  handleDeleteImage: () => void;
+  handleDeleteImage?: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({
   show,
   onClose,
   imageSrc,
-
   handleDeleteImage,
 }) => {
   if (!show) {
@@ -26,18 +25,19 @@ const Modal: React.FC<ModalProps> = ({
           alt="Current"
           className="max-w-[80vw] max-h-[80vh] mx-auto rounded-2xl "
         />
-
         <div className="w-full flex justify-end mt-6 gap-4">
-          <Button
-            onClick={() => {
-              handleDeleteImage();
-              onClose();
-            }}
-            color="failure"
-            className="min-w-28"
-          >
-            Deletar
-          </Button>
+          {handleDeleteImage && (
+            <Button
+              onClick={() => {
+                handleDeleteImage();
+                onClose();
+              }}
+              color="failure"
+              className="min-w-28"
+            >
+              Deletar
+            </Button>
+          )}
           <Button onClick={onClose} color="gray" className="min-w-28">
             Fechar
           </Button>

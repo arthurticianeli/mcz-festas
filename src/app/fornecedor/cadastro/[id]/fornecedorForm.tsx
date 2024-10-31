@@ -4,8 +4,8 @@ import { Button, Label, Textarea, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
-import ImageGallery from "../_components/imagemGalery";
-import Modal from "../_components/modal";
+import ImageGallery from "../../../_components/imagemGalery";
+import Modal from "../../../_components/modal";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Nome é obrigatório"),
@@ -15,6 +15,7 @@ const validationSchema = Yup.object().shape({
   site: Yup.string().url("URL inválida"),
   description: Yup.string().required("Descrição é obrigatória"),
   type: Yup.string().required("Tipo é obrigatório"),
+  pictures: Yup.array().min(1, "Selecione ao menos uma imagem"),
 });
 
 const FornecedorForm: React.FC<{
@@ -24,14 +25,16 @@ const FornecedorForm: React.FC<{
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    watch,
     setValue,
+    formState: { errors },
   } = useForm<Fornecedor>({
     resolver: yupResolver(validationSchema),
     defaultValues: fornecedor,
   });
 
-  const [selectedImages, setSelectedImages] = useState<File[]>([]);
+  const pictures = watch("pictures");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<string>("");
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -42,22 +45,34 @@ const FornecedorForm: React.FC<{
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
-
     if (files) {
-      const images = Array.from(files);
-      setSelectedImages((prevImages) => [...prevImages, ...images]);
-      setValue("pictures", [...selectedImages, ...images]);
+      const promises = Array.from(files).map(
+        (file) =>
+          new Promise<string>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          })
+      );
+
+      Promise.all(promises).then((images) => {
+        setValue("pictures", images);
+      });
     }
   };
 
   const handleDeleteImage = () => {
-    setSelectedImages((prevImages) =>
-      prevImages.filter((_, i) => i !== currentImageIndex)
-    );
+    if (pictures) {
+      setValue(
+        "pictures",
+        pictures.filter((_, i: number) => i !== currentImageIndex)
+      );
+    }
   };
 
-  const openModal = (image: File) => {
-    setCurrentImage(URL.createObjectURL(image));
+  const openModal = (image: string) => {
+    setCurrentImage(image);
     setIsModalOpen(true);
   };
 
@@ -163,7 +178,7 @@ const FornecedorForm: React.FC<{
       </div>
 
       <ImageGallery
-        selectedImages={selectedImages}
+        pictures={pictures}
         openModal={openModal}
         setCurrentImageIndex={setCurrentImageIndex}
       />

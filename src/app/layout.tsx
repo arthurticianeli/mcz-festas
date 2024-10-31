@@ -33,7 +33,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
+        className={cn(
+          inter.className,
+          " relative dark:bg-slate-900 dark:text-slate-400"
+        )}
       >
         <Background />
         <Navigation />

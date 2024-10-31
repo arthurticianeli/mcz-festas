@@ -2,8 +2,8 @@
 
 import { Fornecedor } from "@/interfaces/fornecedor";
 import React from "react";
-import Container from "../_components/container";
-import { FornecedorMock } from "../mocks/fornecedorMock";
+import Container from "../../../_components/container";
+import { FornecedorMock } from "../../../mocks/fornecedorMock";
 import FornecedorForm from "./fornecedorForm";
 
 const FornecedorPage: React.FC<{}> = () => {
